@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 public abstract class ClientPlayerEntityMixin {
     @ModifyVariable(method = "sendChatMessage", at = @At("HEAD"), ordinal = 0, argsOnly = true)
     private String onSendChatMessage(String message) {
+        if (message.startsWith("/")) return message; // ignore commands
         return UwuConfig.uwuifyOutgoing ? Uwuifier.uwu(message) : message;
     }
 }
