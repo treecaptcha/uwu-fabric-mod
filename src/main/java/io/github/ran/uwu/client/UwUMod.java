@@ -12,4 +12,9 @@ public class UwUMod implements ClientModInitializer {
     public void onInitializeClient() {
         UwuConfig.load();
     }
+
+    // This is used for testing purposes
+    public static void main(String[] args) {
+
+    }
 }

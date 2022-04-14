@@ -9,6 +9,7 @@ import java.util.Random;
 public class Uwuifier {
     public static String uwu(String stringToUwuify) {
         if (stringToUwuify.equals(UwUMod.prevUwuifiedMessage)) stringToUwuify = UwUMod.prevMessage;
+        if (stringToUwuify.endsWith(" >_<")) stringToUwuify = stringToUwuify.substring(0, stringToUwuify.length() - 4);
         return UwUMod.prevUwuifiedMessage = (UwUMod.prevMessage = stringToUwuify).toLowerCase().replaceAll("r|l","w").replaceAll("n([aeiou])", "ny$1").replaceAll("ove", "uve").replaceAll("uck", "uwq").replaceFirst("i", "i-i").replaceFirst("(?s)(.*)" + "i-i-i", "$1" + "i-i") + ((new Random().nextInt(10)) <= 2 ? " >_<" : ""); // Wanted to put >~< but it doesn't look good in minecraft font rendering
     }
 

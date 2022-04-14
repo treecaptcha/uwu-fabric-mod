@@ -32,6 +32,25 @@ public class UwuConfig extends Vigilant {
     )
     public static boolean uwuifyMinecraft = true;
 
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Exempt Commands Using Regex",
+            description = "you can use wegex to nyot uwui-ify cewtain pawts of a command!",
+            category = "uwu", subcategory = "commands"
+    )
+    public static boolean uwuifyCertainCommands = false;
+    @Property(
+            type = PropertyType.PARAGRAPH,
+            name = "Regex Exemptions",
+            description = "thi-is uses java wegex to nyot uwui-ify cewtain pawts of a command!",
+            category = "uwu", subcategory = "commands"
+    )
+    public static String uwuifyCommands = """
+            (\\/msg [0-9a-zA-Z_]{1,16})
+            /me
+            /say
+            """;
+
     public static boolean isLoaded = false;
 
     public static UwuConfig INSTANCE;
@@ -54,6 +73,10 @@ public class UwuConfig extends Vigilant {
         registerListener("uwuifyOutgoing", this::forceSaveConfig);
         registerListener("uwuifyIncoming", this::forceSaveConfig);
         registerListener("uwuifyMinecraft", this::reloadResources);
+
+        try {
+            addDependency("uwuifyCommands", "uwuifyCertainCommands");
+        } catch (Exception ignored) { }
 
         isLoaded = true;
     }
