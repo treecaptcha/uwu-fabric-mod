@@ -1,6 +1,5 @@
 package io.github.ran.uwu.client.config;
 
-import com.terraformersmc.modmenu.ModMenu;
 import gg.essential.vigilance.Vigilance;
 import gg.essential.vigilance.Vigilant;
 import gg.essential.vigilance.data.Property;
