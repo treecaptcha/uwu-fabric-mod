@@ -55,6 +55,7 @@ public class UwuConfig extends Vigilant {
     @Property(
             type = PropertyType.SWITCH,
             name = "Uwuify Font Renderer",
+            description = "i-it uwuifies the font renderer! >_<",
             category = "uwu", subcategory = "font renderer"
     )
     public static boolean uwuifyFontRenderer = false;
