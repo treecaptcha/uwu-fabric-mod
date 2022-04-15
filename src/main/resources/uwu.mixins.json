@@ -8,7 +8,9 @@
   "client": [
     "ClientPlayerEntityMixin",
     "TranslationStorageMixin",
-    "ClientPlayNetworkHandlerMixin"
+    "ClientPlayNetworkHandlerMixin",
+    "MixinDebugHud",
+    "MixinTextRenderer"
   ],
   "injectors": {
     "defaultRequire": 1

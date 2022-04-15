@@ -1,5 +1,6 @@
 package io.github.ran.uwu.client.config;
 
+import com.terraformersmc.modmenu.ModMenu;
 import gg.essential.vigilance.Vigilance;
 import gg.essential.vigilance.Vigilant;
 import gg.essential.vigilance.data.Property;
@@ -51,6 +52,13 @@ public class UwuConfig extends Vigilant {
             /say
             """;
 
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Uwuify Font Renderer",
+            category = "uwu", subcategory = "font renderer"
+    )
+    public static boolean uwuifyFontRenderer = false;
+
     public static boolean isLoaded = false;
 
     public static UwuConfig INSTANCE;
@@ -69,14 +77,14 @@ public class UwuConfig extends Vigilant {
         super(configFile(), "uwu");
         initialize();
 
-        // Sometimes the config doesn't save properly, so we force it to save
-        registerListener("uwuifyOutgoing", this::forceSaveConfig);
-        registerListener("uwuifyIncoming", this::forceSaveConfig);
         registerListener("uwuifyMinecraft", this::reloadResources);
 
         try {
             addDependency("uwuifyCommands", "uwuifyCertainCommands");
-        } catch (Exception ignored) { }
+            addDependency("uwuifyFontRenderer", "uwuifyMinecraft");
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
 
         isLoaded = true;
     }
@@ -90,13 +98,18 @@ public class UwuConfig extends Vigilant {
         return file;
     }
 
-    public void forceSaveConfig(Object field) {
+    public void forceSaveConfig() {
         INSTANCE.markDirty();
         INSTANCE.writeData();
     }
 
     public void reloadResources(Object field) {
-        this.forceSaveConfig(field);
+        uwuifyMinecraft = ((Boolean) field);
+        forceSaveConfig();
+        if (MinecraftClient.getInstance().currentScreen != null) {
+            MinecraftClient.getInstance().currentScreen.close();
+        }
+        MinecraftClient.getInstance().setScreen(INSTANCE.gui());
         new Thread(() -> MinecraftClient.getInstance().reloadResources()).start();
     }
 }
