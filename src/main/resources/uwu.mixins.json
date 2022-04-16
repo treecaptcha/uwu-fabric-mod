@@ -12,7 +12,8 @@
     "MixinDebugHud",
     "MixinTextRenderer",
     "ScoreboardObjectiveMixin",
-    "ScoreboardPlayerScoreMixin"
+    "ScoreboardPlayerScoreMixin",
+    "SignBlockEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

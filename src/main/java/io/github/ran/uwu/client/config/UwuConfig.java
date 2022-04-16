@@ -31,6 +31,13 @@ public class UwuConfig extends Vigilant {
             category = "uwu"
     )
     public static boolean uwuifyMinecraft = true;
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Uwuify Signs",
+            description = "i-it uwuifies the signs!",
+            category = "uwu"
+    )
+    public static boolean uwuifySigns = false;
 
     @Property(
             type = PropertyType.SWITCH,
