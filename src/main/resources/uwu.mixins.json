@@ -10,7 +10,9 @@
     "TranslationStorageMixin",
     "ClientPlayNetworkHandlerMixin",
     "MixinDebugHud",
-    "MixinTextRenderer"
+    "MixinTextRenderer",
+    "ScoreboardObjectiveMixin",
+    "ScoreboardPlayerScoreMixin"
   ],
   "injectors": {
     "defaultRequire": 1

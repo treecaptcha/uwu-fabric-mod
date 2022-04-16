@@ -15,6 +15,6 @@ public class UwUMod implements ClientModInitializer {
 
     // This is used for testing purposes
     public static void main(String[] args) {
-
+        System.out.println(Uwuifier.uwu("give uwu sound effects cause idk where to get them"));
     }
 }

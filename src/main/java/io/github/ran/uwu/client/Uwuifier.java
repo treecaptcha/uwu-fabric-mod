@@ -14,7 +14,7 @@ public class Uwuifier {
     }
 
     public static String uwuWithoutCuteFace(String stringToUwuify) {
-        if (stringToUwuify.equals(UwUMod.prevUwuifiedMessage)) stringToUwuify = UwUMod.prevMessage;
+        if (stringToUwuify.equals(UwUMod.prevUwuifiedMessage)) return stringToUwuify;
         return UwUMod.prevUwuifiedMessage = (UwUMod.prevMessage = stringToUwuify).toLowerCase().replaceAll("r|l","w").replaceAll("n([aeiou])", "ny$1").replaceAll("ove", "uve").replaceAll("uck", "uwq").replaceFirst("i", "i-i").replaceFirst("(?s)(.*)" + "i-i-i", "$1" + "i-i");
     }
 
