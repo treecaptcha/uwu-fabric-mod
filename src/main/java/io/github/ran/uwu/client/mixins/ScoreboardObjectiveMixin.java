@@ -3,7 +3,6 @@ package io.github.ran.uwu.client.mixins;
 import io.github.ran.uwu.client.Uwuifier;
 import io.github.ran.uwu.client.config.UwuConfig;
 import net.minecraft.scoreboard.ScoreboardObjective;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -23,6 +22,6 @@ public abstract class ScoreboardObjectiveMixin {
 
     @Unique
     private Text uwufiedText(Text text) {
-        return new LiteralText(Uwuifier.uwuWithoutCuteFace(text.getString())).setStyle(text.getStyle());
+        return Text.literal(Uwuifier.uwuWithoutCuteFace(text.getString())).setStyle(text.getStyle());
     }
 }
