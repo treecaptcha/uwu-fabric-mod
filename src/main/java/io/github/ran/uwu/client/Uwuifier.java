@@ -4,9 +4,7 @@ import java.util.Random;
 
 /**
  * This class either contains the best code or the worst code ever written
- * @author Ran
- * @author TreeCaptcha
- * @author RoostersEatYou
+ * @author Ran, TreeCaptcha, RoostersEatYou
  */
 public class Uwuifier {
     /**
